@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema targetNamespace="http://8bitplatoon.com/c3m/api" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://8bitplatoon.com/c3m/api" xmlns:api="http://8bitplatoon.com/c3m/api">
+    <xs:element name="ReqHeader" type="ReqHeader"/>
+    <xs:complexType name="ReqHeader">
+        <xs:sequence>
+            <xs:element name="RequestTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ApiVersion" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ApiKey" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ApiAuthentication" type="ApiAuthentication" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RespHeader" type="RespHeader"/>
+    <xs:complexType name="RespHeader">
+        <xs:sequence>
+            <xs:element name="ResponseTimestamp" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ApiVersion" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="RespCode" type="xs:int" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="RespMsg" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="HeartbeatResp" type="HeartbeatResp"/>
+    <xs:complexType name="HeartbeatResp">
+        <xs:sequence>
+            <xs:element name="RespHeader" type="RespHeader" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ApiAuthentication" type="ApiAuthentication"/>
+    <xs:complexType name="ApiAuthentication">
+        <xs:sequence>
+            <xs:element name="UserName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Password" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
